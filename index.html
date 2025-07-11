@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda Online</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <nav>
+            <a href="index.html" class="nav-brand">
+                <i class="fa-solid fa-store"></i>
+                <span>Mi Tienda</span>
+            </a>
+
+            <button class="hamburger" onclick="document.querySelector('.nav-menu').classList.toggle('show')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+
+            <div class="nav-menu">
+                <ul class="main-links">
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+                <div class="auth-links">
+                    <a href="#" id="cart-icon">🛒 Carrito (<span id="cart-count">0</span>)</a>
+                    <a href="add-product.html" id="add-product-link" style="display:none;">Agregar Producto</a>
+                    <a href="#" id="user-info-link" style="display:none;"></a>
+                    <a href="login.html" id="login-link">Iniciar Sesión</a>
+                    <a href="#" id="logout-button" style="display:none;">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="message-container" class="message-container" style="display: none;"></div>
+
+    <main>
+        <section class="hero">
+            <h1>Bienvenido a Nuestra Tienda</h1>
+            <p>Descubre los mejores productos aquí.</p>
+        </section>
+
+        <section class="products-grid">
+            <h2>Nuestros Productos</h2>
+            <div id="products-container" class="product-list">
+                <p id="no-products-message" style="text-align: center; display: none;">No hay productos disponibles en
+                    este momento.</p>
+                <p id="loading-products-message" style="text-align: center;">Cargando productos...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Tienda Online. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart-modal-btn">&times;</span>
+            <h2>Tu Carrito</h2>
+            <p id="modal-message" class="modal-message" style="display: none;"></p>
+            <div id="cart-items-container" class="modal-cart-items-container">
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <div class="modal-cart-summary">
+                <p>Total: $<span id="cart-total-display">0.00</span></p>
+                <button id="modal-checkout-btn" class="btn-checkout">Proceder al Pago</button>
+            </div>
+            <a href="index.html" class="btn-back-to-home" style="margin-top: 15px;"><i class="fas fa-arrow-left"></i> Seguir Comprando</a>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-payment-modal-btn">&times;</span>
+            <h2>Información de Pago</h2>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="card-number">Número de Tarjeta:</label>
+                    <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="16" required pattern="[0-9]{16}">
+                </div>
+                <div class="form-group">
+                    <label for="card-name">Nombre en la Tarjeta:</label>
+                    <input type="text" id="card-name" placeholder="Nombre Apellido" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry-date">Fecha de Vencimiento:</label>
+                        <input type="text" id="expiry-date" placeholder="MM/AA" maxlength="5" required pattern="(0[1-9]|1[0-2])\/([0-9]{2})">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" placeholder="XXX" maxlength="4" required pattern="[0-9]{3,4}">
+                    </div>
+                </div>
+                <button type="submit" class="btn-pay">Pagar</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/modal-cart.js"></script> 
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

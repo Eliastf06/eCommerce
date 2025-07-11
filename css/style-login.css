@@ -1,0 +1,215 @@
+/* css/style-login.css */
+
+/* Variables de Colores */
+:root {
+    --primary-blue: #007bff;
+    --primary-dark-blue: #0056b3;
+    --background-light-blue: #e0f2f7;
+    --white: #ffffff;
+    --text-dark: #2c3e50;
+    --text-medium: #555;
+    --text-light: #666;
+    --border-light: #c0d9e6;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.05);
+    --focus-shadow: rgba(0, 123, 255, 0.25);
+
+    /* Mensajes */
+    --success-bg: #e6ffe6;
+    --success-border: #a8e6a8;
+    --success-text: #28a745;
+    --error-bg: #ffe6e6;
+    --error-border: #e6a8a8;
+    --error-text: #dc3545;
+    --info-bg: #f0f0f0;
+    --info-border: #d0d0d0;
+    --info-text: #333;
+}
+
+/* Base Styles */
+body {
+    /* Usar 'Inter' si está disponible, de lo contrario Arial */
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: var(--background-light-blue); /* Usando variable */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Añadir padding para pantallas pequeñas */
+    box-sizing: border-box; /* Asegurar que el padding no cause desbordamiento */
+}
+
+.container {
+    background-color: var(--white); /* Usando variable */
+    padding: 40px;
+    border-radius: 12px;
+    /* Sombra más suave y moderna */
+    box-shadow: 0 10px 25px var(--shadow-light), 0 5px 10px var(--shadow-medium); /* Usando variables */
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-container {
+    margin-top: 25px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.form-container.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    position: absolute;
+}
+
+/* Asegurar que el formulario visible no esté afectado por position:absolute */
+.form-container:not(.hidden) {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+h2 {
+    color: var(--text-dark); /* Usando variable */
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.form .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-medium); /* Usando variable */
+    font-weight: 500;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-light); /* Usando variable */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form input[type="text"]:focus,
+.form input[type="email"]:focus,
+.form input[type="password"]:focus {
+    border-color: var(--primary-blue); /* Usando variable */
+    box-shadow: 0 0 0 3px var(--focus-shadow); /* Usando variable */
+    outline: none;
+}
+
+.form button {
+    /* Gradiente para un look más moderno */
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-dark-blue)); /* Usando variables */
+    color: var(--white); /* Usando variable */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px var(--focus-shadow); /* Usando variable */
+}
+
+.form button:hover {
+    background: linear-gradient(to right, var(--primary-dark-blue), var(--primary-blue)); /* Usando variables */
+    box-shadow: 0 6px 15px var(--focus-shadow); /* Usando variable */
+    transform: translateY(-2px);
+}
+
+.form p {
+    margin-top: 20px;
+    color: var(--text-light); /* Usando variable */
+    font-size: 0.95em;
+}
+
+.form p a {
+    color: var(--primary-blue); /* Usando variable */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.form p a:hover {
+    color: var(--primary-dark-blue); /* Usando variable */
+    text-decoration: underline;
+}
+
+/* Estilos para mensajes de la aplicación */
+#app-message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 8px var(--shadow-light); /* Usando variable */
+    transition: all 0.3s ease;
+}
+
+/* Colores de fondo y borde más suaves para los mensajes */
+#app-message[style*="green"] {
+    background-color: var(--success-bg); /* Usando variable */
+    border: 1px solid var(--success-border); /* Usando variable */
+    color: var(--success-text); /* Usando variable */
+}
+
+#app-message[style*="red"] {
+    background-color: var(--error-bg); /* Usando variable */
+    border: 1px solid var(--error-border); /* Usando variable */
+    color: var(--error-text); /* Usando variable */
+}
+
+#app-message[style*="black"] {
+    background-color: var(--info-bg); /* Usando variable */
+    border: 1px solid var(--info-border); /* Usando variable */
+    color: var(--info-text); /* Usando variable */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+        margin: 15px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .form input,
+    .form button {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 15px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .form p {
+        font-size: 0.9em;
+    }
+}

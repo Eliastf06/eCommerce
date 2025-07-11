@@ -1,0 +1,252 @@
+/* css/product-detail.css */
+
+/* Variables de Colores (ya existentes, mantenidas para referencia) */
+:root {
+    --white: #fff;
+    --dark-grey: #2c3e50; /* Color principal de texto */
+    --medium-grey: #34495e; /* Color secundario de texto */
+    --light-grey-text: #7f8c8d; /* Color para texto menos importante */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --light-border: #e0e0e0; /* Borde más suave */
+
+    --primary-blue: #3498db; /* Azul principal */
+    --primary-dark-blue: #2980b9;
+    --success-green: #27ae60; /* Verde para acciones positivas (añadir al carrito) */
+    --success-dark-green: #219856;
+    --error-red: #e74c3c; /* Rojo para alertas (poco stock) */
+}
+
+.product-detail-main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 180px);
+}
+
+.product-detail-card {
+    background-color: var(--white);
+    padding: 40px; /* Más padding para la tarjeta principal */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 8px 20px var(--shadow-light); /* Sombra más pronunciada */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Espacio entre imagen y detalles en vista móvil */
+}
+
+.product-detail-image-container {
+    width: 100%;
+    max-width: 550px; /* Tamaño máximo de imagen ligeramente mayor */
+    margin-bottom: 0; /* Ya no es necesario si hay gap */
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12); /* Sombra para la imagen */
+}
+
+.product-detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.product-detail-info {
+    width: 100%;
+    text-align: center; /* Por defecto centrado para móviles */
+}
+
+.product-detail-info h1 {
+    font-size: 2.8rem; /* Título de producto más grande */
+    color: var(--dark-grey);
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.product-detail-price {
+    font-size: 2.5rem; /* Precio más grande y llamativo */
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+.product-detail-description {
+    font-size: 1.15rem; /* Descripción más legible */
+    color: var(--medium-grey);
+    line-height: 1.7;
+    margin-bottom: 30px;
+    text-align: left; /* Alineado a la izquierda para la descripción */
+    padding: 0 10px; /* Pequeño padding para móviles */
+}
+
+.product-detail-stock {
+    font-size: 1.05rem;
+    color: var(--light-grey-text);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.product-detail-stock.low-stock {
+    color: var(--error-red);
+    font-weight: bold;
+    animation: pulse 1.5s infinite; /* Animación para bajo stock */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.03); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.product-detail-add-to-cart {
+    background-color: var(--success-green);
+    color: var(--white);
+    padding: 18px 35px; /* Más padding para el botón principal */
+    border: none;
+    border-radius: 8px; /* Bordes más redondeados */
+    cursor: pointer;
+    font-size: 1.3rem; /* Botón más grande */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: 90%; /* Ajuste de ancho para móvil */
+    max-width: 350px;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); /* Sombra para el botón */
+}
+
+.product-detail-add-to-cart:hover {
+    background-color: var(--success-dark-green);
+    transform: translateY(-3px); /* Efecto de elevación más pronunciado */
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.product-detail-add-to-cart i {
+    margin-right: 12px;
+    font-size: 1.4rem;
+}
+
+.btn-back-to-products {
+    display: inline-block;
+    margin-top: 40px; /* Más margen superior */
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.btn-back-to-products:hover {
+    color: var(--primary-dark-blue);
+    text-decoration: underline;
+    transform: translateX(-5px); /* Pequeño efecto de deslizamiento */
+}
+
+.btn-back-to-products i {
+    margin-right: 8px;
+}
+
+/* Media Queries para Responsividad */
+
+/* Pantallas pequeñas (teléfonos) */
+@media (max-width: 768px) {
+    .product-detail-main-content {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .product-detail-card {
+        padding: 25px;
+    }
+
+    .product-detail-info h1 {
+        font-size: 2.2rem;
+    }
+
+    .product-detail-price {
+        font-size: 2rem;
+    }
+
+    .product-detail-description {
+        font-size: 1.05rem;
+        padding: 0; /* Eliminar padding horizontal extra para pantallas muy pequeñas */
+    }
+
+    .product-detail-add-to-cart {
+        padding: 15px 25px;
+        font-size: 1.15rem;
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: none;
+    }
+}
+
+/* Pantallas aún más pequeñas */
+@media (max-width: 480px) {
+    .product-detail-card {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .product-detail-info h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .product-detail-price {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+    .product-detail-description {
+        font-size: 0.95rem;
+    }
+    .product-detail-add-to-cart {
+        padding: 12px 20px;
+        font-size: 1.05rem;
+    }
+    .btn-back-to-products {
+        font-size: 1rem;
+        margin-top: 25px;
+    }
+}
+
+/* Para pantallas medianas y grandes, reorganizar el contenido */
+@media (min-width: 769px) {
+    .product-detail-card {
+        flex-direction: row; /* La imagen y la info se ponen lado a lado */
+        align-items: flex-start; /* Alinea los elementos al inicio de su contenedor flex */
+        text-align: left;
+        padding: 50px; /* Más padding para desktop */
+        gap: 50px; /* Más espacio entre imagen y detalles */
+    }
+
+    .product-detail-image-container {
+        flex: 1; /* Ocupa el espacio disponible */
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .product-detail-info {
+        flex: 1.5; /* La información ocupa más espacio que la imagen */
+        text-align: left;
+    }
+
+    .product-detail-info h1 {
+        font-size: 3.2rem; /* Título aún más grande en desktop */
+    }
+
+    .product-detail-price {
+        font-size: 2.8rem;
+    }
+
+    .product-detail-description {
+        padding: 0;
+    }
+
+    .product-detail-add-to-cart {
+        width: auto; /* Ancho automático para desktop */
+        max-width: 300px; /* Max-width para el botón */
+    }
+}

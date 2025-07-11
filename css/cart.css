@@ -1,0 +1,384 @@
+/* css/cart.css */
+
+/* Variables de Colores */
+:root {
+    --white: #fff;
+    --light-grey: #f8f9fa;
+    --dark-grey: #333;
+    --medium-grey: #555;
+    --light-border: #eee;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-extra-light: rgba(0,0,0,0.05);
+
+    --primary-blue: #007bff;
+    --primary-dark-blue: #0056b3;
+    --success-green: #28a745;
+    --success-dark-green: #218838;
+    --error-red: #dc3545;
+    --error-dark-red: #c82333;
+    --info-grey: #6c757d;
+    --info-dark-grey: #5a6268;
+
+    /* Mensajes */
+    --message-success-bg: #d4edda;
+    --message-success-text: #155724;
+    --message-success-border: #c3e6cb;
+    --message-error-bg: #f8d7da;
+    --message-error-text: #721c24;
+    --message-error-border: #f5c6cb;
+    --message-info-bg: #d1ecf1;
+    --message-info-text: #0c5460;
+    --message-info-border: #bee5eb;
+}
+
+.cart-main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 180px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.cart-container {
+    background-color: var(--white); /* Usando variable */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light); /* Usando variable */
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.cart-container h2 {
+    color: var(--dark-grey); /* Usando variable */
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+}
+
+.cart-message {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.cart-message.success {
+    background-color: var(--message-success-bg); /* Usando variable */
+    color: var(--message-success-text); /* Usando variable */
+    border: 1px solid var(--message-success-border); /* Usando variable */
+}
+
+.cart-message.error {
+    background-color: var(--message-error-bg); /* Usando variable */
+    color: var(--message-error-text); /* Usando variable */
+    border: 1px solid var(--message-error-border); /* Usando variable */
+}
+
+.cart-message.info {
+    background-color: var(--message-info-bg); /* Usando variable */
+    color: var(--message-info-text); /* Usando variable */
+    border: 1px solid var(--message-info-border); /* Usando variable */
+}
+
+/* Lista de ítems del carrito */
+.cart-items-list {
+    margin-bottom: 30px;
+    border-top: 1px solid var(--light-border); /* Usando variable */
+    padding-top: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid var(--light-border); /* Usando variable */
+    border-radius: 8px;
+    background-color: var(--white); /* Usando variable */
+    text-align: left;
+    box-shadow: 0 2px 5px var(--shadow-extra-light); /* Usando variable */
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-info h4 {
+    margin: 0 0 5px 0;
+    color: var(--dark-grey); /* Usando variable */
+    font-size: 1.1rem;
+}
+
+.cart-item-info p {
+    margin: 0;
+    color: var(--medium-grey); /* Usando variable */
+    font-size: 0.9rem;
+}
+
+.cart-item-quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cart-item-quantity-controls button {
+    background-color: var(--primary-blue); /* Usando variable */
+    color: var(--white); /* Usando variable */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.cart-item-quantity-controls button:hover {
+    background-color: var(--primary-dark-blue); /* Usando variable */
+}
+
+.cart-item-quantity-controls span {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 25px;
+    text-align: center;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: var(--success-green); /* Usando variable */
+    font-size: 1.1rem;
+    margin-left: 20px;
+    min-width: 80px;
+    text-align: right;
+}
+
+.remove-item-btn {
+    background-color: var(--error-red); /* Usando variable */
+    color: var(--white); /* Usando variable */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.remove-item-btn:hover {
+    background-color: var(--error-dark-red); /* Usando variable */
+}
+
+
+/* Resumen del carrito y botones */
+.cart-summary {
+    background-color: var(--light-grey); /* Usando variable */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--light-border); /* Usando variable */
+    margin-top: 20px;
+    text-align: right;
+}
+
+.cart-summary p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--dark-grey); /* Usando variable */
+    margin-bottom: 15px;
+}
+
+.cart-summary span#cart-total {
+    color: var(--success-green); /* Usando variable */
+    font-size: 1.6rem;
+}
+
+.btn-checkout {
+    background-color: var(--primary-blue); /* Usando variable */
+    color: var(--white); /* Usando variable */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-checkout:hover {
+    background-color: var(--primary-dark-blue); /* Usando variable */
+}
+
+/* Sección de pago */
+.payment-section {
+    background-color: var(--light-grey); /* Usando variable */
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--light-border); /* Usando variable */
+    margin-top: 30px;
+    text-align: left;
+}
+
+.payment-section h3 {
+    text-align: center;
+    color: var(--dark-grey); /* Usando variable */
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.payment-section .form-group {
+    margin-bottom: 15px;
+}
+
+.payment-section .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--medium-grey); /* Usando variable */
+    font-weight: bold;
+}
+
+.payment-section input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid var(--light-border); /* Usando variable */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.payment-section .form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.payment-section .form-row .form-group {
+    flex: 1;
+}
+
+.btn-pay {
+    background-color: var(--success-green); /* Usando variable */
+    color: var(--white); /* Usando variable */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-pay:hover {
+    background-color: var(--success-dark-green); /* Usando variable */
+}
+
+.btn-pay span#final-total {
+    font-size: 1.4rem;
+    margin-left: 5px;
+}
+
+.btn-cancel-payment {
+    background-color: var(--info-grey); /* Usando variable */
+    color: var(--white); /* Usando variable */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-cancel-payment:hover {
+    background-color: var(--info-dark-grey); /* Usando variable */
+}
+
+.btn-back-to-home {
+    display: inline-block;
+    margin-top: 25px;
+    color: var(--primary-blue); /* Usando variable */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.btn-back-to-home:hover {
+    color: var(--primary-dark-blue); /* Usando variable */
+    text-decoration: underline;
+}
+
+.btn-back-to-home i {
+    margin-right: 5px;
+}
+
+
+/* Media Queries para Responsividad del Carrito */
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 20px;
+    }
+    .cart-container h2 {
+        font-size: 1.8rem;
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+    .cart-item-image {
+        width: 60px;
+        height: 60px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .cart-item-info {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .cart-item-info h4 {
+        font-size: 1rem;
+    }
+    .cart-item-price {
+        margin-left: 0;
+        text-align: left;
+        width: 100%;
+    }
+    .remove-item-btn {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .cart-item-quantity-controls {
+        justify-content: center;
+        width: 100%;
+    }
+    .cart-summary p {
+        font-size: 1.2rem;
+    }
+    .cart-summary span#cart-total {
+        font-size: 1.4rem;
+    }
+    .btn-checkout, .btn-pay, .btn-cancel-payment {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    .payment-section .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .payment-section .form-row .form-group {
+        margin-bottom: 15px;
+    }
+}
