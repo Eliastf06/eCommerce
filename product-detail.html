@@ -36,19 +36,61 @@
         </nav>
     </header>
 
-    <div id="message-container" class="message-container" style="display: none;"></div>
-
     <main class="product-detail-main-content">
+        <div id="loading-message" class="message-container info" style="display: none;">Cargando detalles del producto...</div>
+        <div id="error-message" class="message-container error" style="display: none;"></div>
+
         <div id="product-detail-container" class="product-detail-card">
-            <p id="loading-message" style="text-align: center; font-size: 1.2rem; color: #555;">Cargando detalles del
-                producto...</p>
-            <p id="error-message" style="display: none; text-align: center; font-size: 1.2rem; color: #d9534f;">Producto
-                no encontrado o error al cargar.</p>
-        </div>
+            </div>
+
+        <section id="additional-details-section" class="additional-details-section">
+            <h2>Características del Producto</h2>
+            <div id="product-features" class="product-features">
+                <ul>
+                    </ul>
+            </div>
+        </section>
+
+        <section id="reviews-section" class="reviews-section">
+            <h2>Reseñas de Clientes</h2>
+            <div id="reviews-list" class="reviews-list">
+                </div>
+            <div class="review-form-container">
+                <h3>Deja tu Reseña</h3>
+                <form id="review-form" class="review-form">
+                    <div class="form-group">
+                        <label for="reviewer-name">Tu Nombre:</label>
+                        <input type="text" id="reviewer-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-rating">Tu Calificación:</label>
+                        <div class="star-rating" id="review-rating">
+                            <i class="far fa-star" data-value="1"></i>
+                            <i class="far fa-star" data-value="2"></i>
+                            <i class="far fa-star" data-value="3"></i>
+                            <i class="far fa-star" data-value="4"></i>
+                            <i class="far fa-star" data-value="5"></i>
+                        </div>
+                        <input type="hidden" id="selected-rating" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="review-text">Tu Reseña:</label>
+                        <textarea id="review-text" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit-review">Enviar Reseña</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="related-products-section" class="related-products-section">
+            <h2>Productos Relacionados</h2>
+            <div id="related-products-list" class="related-products-list">
+                </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Mi Tienda Online. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Mi Tienda Online. Todos los derechos reservados.</p>
     </footer>
 
     <div id="cart-modal" class="modal">
@@ -98,7 +140,6 @@
     <script type="module" src="js/auth.js"></script>
     <script type="module" src="js/modal-cart.js"></script>
     <script type="module" src="js/product-detail.js"></script>
-
 </body>
 
 </html>
